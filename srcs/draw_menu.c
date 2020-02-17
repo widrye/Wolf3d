@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 02:03:51 by widrye       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 08:44:45 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 22:56:02 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -86,6 +86,8 @@ static void		menu_buttons(t_data *d)
 	d->window_ptr, d->image.image_ptr, 0, 0);
 	mlx_put_image_to_window(d->mlx_ptr, d->window_ptr, d->texture.
 	pause_box.image_ptr, d->pause_x, d->pause_y);
+	mlx_string_put(d->mlx_ptr, d->window_ptr,
+	(float)d->pause_x, (float)d->pause_y, WHITE, "TEST");
 	mlx_put_image_to_window(d->mlx_ptr, d->window_ptr, d->texture.
 	pause_button.image_ptr, d->pause_x + 210, d->pause_y + 160);
 	mlx_string_put(d->mlx_ptr, d->window_ptr,

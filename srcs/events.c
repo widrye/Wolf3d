@@ -6,13 +6,12 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/09/20 11:05:35 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 15:06:48 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 04:43:10 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
-#include <stdio.h>
 
 void			magic(t_data *data)
 {

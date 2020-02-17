@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 12:07:17 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 08:25:46 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/09 06:11:13 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,14 +36,12 @@ void				compute_texture_pos(t_data *data)
 	if (data->rays.side == 0)
 	{
 		data->texture.i = 1;
-		data->texture.map_x = data->player.pos_y + data->rays.dist_from_wall *
-							data->rays.dir_y;
+		data->texture.map_x = data->player.pos_y + data->rays.dist_from_wall * data->rays.dir_y;
 	}
 	else
 	{
 		data->texture.i = 2;
-		data->texture.map_x = data->player.pos_x + data->rays.dist_from_wall *
-							data->rays.dir_x;
+		data->texture.map_x = data->player.pos_x + data->rays.dist_from_wall * data->rays.dir_x;
 	}
 	data->texture.map_x -= floor(data->texture.map_x);
 	data->texture.x = ceil(data->texture.map_x * data->texture.size) - 1;

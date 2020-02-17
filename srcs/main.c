@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/09/11 11:10:37 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 16:12:18 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 21:06:23 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,7 +78,6 @@ int			main(int argc, char **argv)
 {
 	t_data data;
 
-	// sleep(10);
 	if ((parsing(argc, argv[1], &data) == -1))
 		exit(EXIT_FAILURE);
 	else

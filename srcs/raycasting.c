@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/09/18 14:38:07 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 04:54:21 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/17 17:06:23 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -77,9 +77,9 @@ int x, float fov_modif)
 
 t_data			*render(t_data *data)
 {
-	int	thread_width;
+	float		thread_width;
 
-	thread_width = WIDTH / THREAD_QNTY;
+	thread_width = (float)WIDTH / (float)THREAD_QNTY;
 	data->world.x = data->thread_n * thread_width - 1;
 	while (++data->world.x < thread_width * (data->thread_n + 1))
 	{
