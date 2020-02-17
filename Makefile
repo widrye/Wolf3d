@@ -52,7 +52,7 @@ LIBMLX = $(LIBMLX_PATH)libmlx.a
 
 # SRCS & OBJ
 
-SRCS_NAME = main.c parsing.c drawline.c raycasting.c events.c init.c init_struct.c \
+SRCS_NAME = main.c parsing.c draw_floor.c raycasting.c events.c init.c init_struct.c \
 			texture.c gradient.c init_xpm.c movement.c draw_menu.c sky.c \
 			pause_events.c mouse_events.c shade.c init_str_xpm.c
 
