@@ -15,7 +15,7 @@ NAME = Wolf3D
 
 # FLAGS
 
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror
 
 FLAGS_FRMWRK = -framework OpenGL -framework AppKit
 

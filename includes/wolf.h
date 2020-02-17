@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 15:52:58 by widrye       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 15:53:00 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/17 21:16:47 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,9 +47,9 @@ void		secure_map(t_world *world, char **tab);
 */
 t_data		*thread_manager(t_data *datatorender);
 t_data		*render(t_data *data);
-void		draw_sline(t_data *data, int d);
-int			get_color(t_segment segment, t_vector vector);
-void		compute_texture_pos(t_data *data);
+void		draw_floor(t_data *data);
+int			get_color(int range, int n);
+void		texture_wall(t_data *data);
 void		texellit(t_data *data, int64_t y, int64_t x);
 void		apply_end_screen(t_data *data);
 void		apply_sky(t_data *data);

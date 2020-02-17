@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/09/18 14:38:07 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/17 17:06:23 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/17 20:56:45 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -87,12 +87,12 @@ t_data			*render(t_data *data)
 		data->world.x, data->fov / (float)90);
 		detect_wall(&data->rays, &data->world);
 		compute_dist_from_wall(&data->rays, &data->player, &data->world);
-		compute_texture_pos(data);
+		texture_wall(data);
 		if (data->rays.wall == 2 || data->rays.wall == 3)
 			data->texture.i = 0;
 		pthread_mutex_lock(&data->lock);
-		draw_sline(data, 0);
-		draw_sline(data, 1);
+		// draw_sline(data, 0);
+		draw_floor(data);
 		pthread_mutex_unlock(&data->lock);
 	}
 	return (data);

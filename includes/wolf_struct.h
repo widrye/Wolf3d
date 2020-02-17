@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/09/11 11:15:39 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 03:33:50 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/17 21:15:08 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -106,21 +106,6 @@ typedef struct		s_segment
 	int						e2;
 }					t_segment;
 
-typedef struct		s_color
-{
-	int						start_x;
-	int						start_y;
-	int						end_x;
-	int						end_y;
-	int						current_x;
-	int						current_y;
-	int						delta_x;
-	int						delta_y;
-	int						start_color;
-	int						end_color;
-	int						current_color;
-}					t_color;
-
 typedef struct		s_data
 {
 	int						thread_n;
@@ -133,8 +118,8 @@ typedef struct		s_data
 	float					move_speed;
 	float					camera_speed;
 	float					fov;
-	int						pause_y;
-	int						pause_x;
+	float					pause_y;
+	float					pause_x;
 	int						mouse_x;
 	int						mouse_y;
 	int						mouse_pressed;

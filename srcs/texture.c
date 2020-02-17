@@ -6,54 +6,44 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 12:07:17 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/09 06:11:13 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/17 21:19:01 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void				texellit(t_data *data, int64_t y, int64_t x)
+void				texture_wall(t_data *data)
 {
-	int i;
-
-	i = 0;
-	if (y < 0 || x < 0 || y >= HEIGHT || x >= WIDTH)
-		return ;
-	if (data->texture.y < 0 || data->texture.x < 0 ||
-		data->texture.y >= data->texture.size ||
-		data->texture.x >= data->texture.size)
-		return ;
-	if (data->texture.i)
-		i = data->texture.i + data->texturepack * 4;
-	data->image.image_str[(y * WIDTH) + x] = data->texture.wall[i].
-	image_str[((int)data->texture.y * data->texture.size) +
-	(int)data->texture.x];
-}
-
-void				compute_texture_pos(t_data *data)
-{
+	int	y;
+	int	d;
+	double	ty;
+	double  tx;
+	y = data->world.line_pos[0][data->world.x] - 1;
 	if (data->rays.side == 0)
-	{
-		data->texture.i = 1;
-		data->texture.map_x = data->player.pos_y + data->rays.dist_from_wall * data->rays.dir_y;
-	}
+		tx = data->player.pos_y + data->rays.dist_from_wall * data->rays.dir_y;
 	else
+		tx = data->player.pos_x + data->rays.dist_from_wall * data->rays.dir_x;
+	tx = tx * (double)data->texture.size;
+	while (++y < data->world.line_pos[1][data->world.x] - 1)
 	{
-		data->texture.i = 2;
-		data->texture.map_x = data->player.pos_x + data->rays.dist_from_wall * data->rays.dir_x;
-	}
-	data->texture.map_x -= floor(data->texture.map_x);
-	data->texture.x = ceil(data->texture.map_x * data->texture.size) - 1;
-	if (data->rays.side == 0 && data->rays.dir_x > 0)
-	{
-		data->texture.i = 3;
-		data->texture.x = data->texture.size - data->texture.x - 1;
-	}
-	if (data->rays.side == 1 && data->rays.dir_y < 0)
-	{
-		data->texture.i = 4;
-		data->texture.x = data->texture.size - data->texture.x - 1;
+		d = (int)fabs(y - (HEIGHT * 0.5) + (data->world.line_height * 0.5));
+		ty = ((d * data->texture.size) / data->world.line_height);
+		if (data->rays.side == 0 && data->rays.dir_x < 0)
+			data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
+			data->texture.wall[1 + 4  * data->texturepack].image_str[(int)((((int)ty % data->texture.size) * data->texture.size) + ((int)tx % data->texture.size))];
+		if (data->rays.side == 0 && data->rays.dir_x > 0)
+			data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
+			data->texture.wall[2 + 4 * data->texturepack].image_str[(int)((((int)ty % data->texture.size) * data->texture.size) + ((int)tx % data->texture.size))];
+		if (data->rays.side == 1 && data->rays.dir_y < 0)
+			data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
+			data->texture.wall[3 + 4 * data->texturepack].image_str[(int)((((int)ty % data->texture.size) * data->texture.size) + ((int)tx % data->texture.size))];
+		if (data->rays.side == 1 && data->rays.dir_y > 0)
+			data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
+			data->texture.wall[4 + 4 * data->texturepack].image_str[(int)((((int)ty % data->texture.size) * data->texture.size) + ((int)tx % data->texture.size))];
+		if (data->rays.wall == 2 || data->rays.wall == 3)
+			data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
+			data->texture.wall[0].image_str[(int)((((int)ty % data->texture.size) * data->texture.size) + ((int)tx % data->texture.size))];
 	}
 }
 

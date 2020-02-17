@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/09/12 10:05:10 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 03:49:35 by widrye      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 04:10:16 by widrye      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,7 +14,7 @@
 #ifndef WOLF_DEFINE_H
 # define WOLF_DEFINE_H
 
-# define WIDTH 1620
+# define WIDTH 1600
 # define HEIGHT 1024
 
 # define END_SCREEN_WIDTH 1280
