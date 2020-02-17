@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   drawline.c                                       .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/09/26 09:02:14 by widrye       #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/17 21:12:52 by widrye      ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_floor.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/17 21:22:38 by widrye            #+#    #+#             */
+/*   Updated: 2020/02/17 21:39:38 by widrye           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
@@ -24,8 +23,8 @@ void					draw_floor(t_data *data)
 {
 	int y;
 
-	y = data->world.line_pos[1][data->world.x];
-	while (y < HEIGHT - 1)
+	y = data->world.line_pos[1][data->world.x] - 1;
+	while (y < HEIGHT)
 	{
 		pixelit(data, y, data->world.x,
 		get_color(HEIGHT - data->world.line_pos[1]
