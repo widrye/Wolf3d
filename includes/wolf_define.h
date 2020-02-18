@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 10:05:10 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 13:08:12 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 13:55:41 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@
 # define RED 0xff0000
 # define RED_DARK 0x8b0000
 # define GREY_DARK 0x313232
-# define GREY_LIGHT 0x7E8C90
+# define GREY_LIGHT 0x7e8c90
 # define CYAN 0x00ffff
 # define BLUE_DARK 0x001a33
 # define BROWN_DARK 0x181008
+# define BROWN_LIGHT 0x91672c
 
 # define USAGE "Usage : ./Wolf3D map/map.map"
 # define MAP "Erreur dans le chargement de la map! Quelque chose ne va pas..."

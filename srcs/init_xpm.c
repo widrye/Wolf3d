@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   init_xpm.c                                       .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/08 17:53:30 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 08:08:04 by widrye      ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_xpm.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/08 17:53:30 by ztrouill          #+#    #+#             */
+/*   Updated: 2020/02/18 13:58:07 by widrye           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../includes/wolf.h"
 
@@ -115,7 +115,7 @@ static int	init_ptr_textures_d(t_texture *txt, void *mlx_ptr)
 	"textures/textpack4.xpm", &(txt->icon_w), &(txt->icon_h))))
 		return (-1);
 	if (!(txt->sky[0].image_ptr = mlx_xpm_file_to_image(mlx_ptr,
-	"textures/sky.xpm", &(txt->full_width[0]), &(txt->full_height[0]))))
+	"textures/sky1.xpm", &(txt->full_width[0]), &(txt->full_height[0]))))
 		return (-1);
 	if (!(txt->sky[1].image_ptr = mlx_xpm_file_to_image(mlx_ptr,
 	"textures/sky2.xpm", &(txt->full_width[1]), &(txt->full_height[1]))))
