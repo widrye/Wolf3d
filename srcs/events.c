@@ -6,11 +6,11 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 11:05:35 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 14:14:56 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 14:50:35 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include <stdio.h>
 #include "../includes/wolf.h"
 
 void			magic(t_data *data)
@@ -18,8 +18,8 @@ void			magic(t_data *data)
 	float magic_x;
 	float magic_y;
 
-	magic_x = data->player.pos_x + data->player.dir_x;
-	magic_y = data->player.pos_y + data->player.dir_y;
+	magic_x = data->player.pos_x + data->player.dir_x * 2;
+	magic_y = data->player.pos_y + data->player.dir_y * 2;
 	if (magic_y > 2 && magic_x > 2 && magic_y + 2 < data->world.row_nb &&
 	magic_x + 2 < data->world.line_nb)
 	{
@@ -32,6 +32,7 @@ void			magic(t_data *data)
 		data->world.map[(int)magic_x][(int)magic_y] != 2)
 			data->world.map[(int)magic_x][(int)magic_y] = 1;
 	}
+	dprintf(1, "done\n");
 }
 
 int				key_pressed(int keycode, t_data *data)

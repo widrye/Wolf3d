@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 21:35:48 by widrye            #+#    #+#             */
-/*   Updated: 2020/02/18 13:26:24 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 14:46:55 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		pick_texture(t_data *data)
 		return (4 + 4 * data->texturepack);
 	return (1);
 }
+
+#include <stdio.h>
 
 double		init_t_walls(t_data *data, int *y)
 {
