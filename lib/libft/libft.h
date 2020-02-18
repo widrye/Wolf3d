@@ -6,10 +6,9 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 15:33:46 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 17:52:56 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 19:04:12 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFT_H
 # define LIBFT_H

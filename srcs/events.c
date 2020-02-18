@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 11:05:35 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 14:55:49 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 19:01:42 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void			magic(t_data *data)
 		data->world.map[(int)magic_x][(int)magic_y] != 2)
 			data->world.map[(int)magic_x][(int)magic_y] = 1;
 	}
-	dprintf(1, "done\n");
 }
 
 int				key_pressed(int keycode, t_data *data)
