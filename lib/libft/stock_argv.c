@@ -6,13 +6,11 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:51:03 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 16:43:40 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 19:11:59 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <stdio.h>
 
 static char		*stock_param(const int fd)
 {
@@ -25,7 +23,7 @@ static char		*stock_param(const int fd)
 		return (0);
 	line = NULL;
 	str = ft_strnew(1);
-	while ((ret = get_next_line(fd, &line)) > 0)
+	while ((ret = get_next_line_feed(fd, &line)) > 0)
 	{
 		tmp = ft_strdup(str);
 		free(str);
@@ -41,9 +39,7 @@ char			**stock_argv(const int fd, char **tab)
 	char		*str;
 
 	str = stock_param(fd);
-	dprintf(1, "%s\n", str);
 	tab = ft_strsplit(str, '\n');
-	// dprintf(1, "%s\n", str);
 	free(str);
 	str = NULL;
 	return (tab);
