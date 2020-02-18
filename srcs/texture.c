@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*   By: aplat <aplt@student.le-101.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 21:35:48 by widrye            #+#    #+#             */
-/*   Updated: 2020/02/18 13:26:24 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 14:23:51 by aplat            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-int		pick_texture(t_data *data)
+int				pick_texture(t_data *data)
 {
 	if (data->rays.wall == 2 || data->rays.wall == 3)
 		return (0);
@@ -27,9 +27,9 @@ int		pick_texture(t_data *data)
 	return (1);
 }
 
-double		init_t_walls(t_data *data, int *y)
+double			init_t_walls(t_data *data, int *y)
 {
-	double x;
+	double		x;
 
 	*y = data->world.line_pos[0][data->world.x] - 1;
 	if (data->rays.side == 0)
@@ -40,7 +40,7 @@ double		init_t_walls(t_data *data, int *y)
 	return (x);
 }
 
-void		texture_wall(t_data *data)
+void			texture_wall(t_data *data)
 {
 	int			y;
 	int			d;
@@ -58,7 +58,7 @@ void		texture_wall(t_data *data)
 	}
 }
 
-static void	dump_end_screen(t_data *data)
+static void		dump_end_screen(t_data *data)
 {
 	mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
 							data->image.image_ptr, 0, 0);
@@ -70,12 +70,12 @@ static void	dump_end_screen(t_data *data)
 		WIDTH / 2 - 100, HEIGHT / 2, RED, "Oh non tu as perdu");
 }
 
-void		apply_end_screen(t_data *data)
+void			apply_end_screen(t_data *data)
 {
-	int x;
-	int x2;
-	int y;
-	int y2;
+	int			x;
+	int			x2;
+	int			y;
+	int			y2;
 
 	y = (HEIGHT >= END_SCREEN_HEIGHT) ? abs(END_SCREEN_HEIGHT - HEIGHT) / 2 : 0;
 	y2 = (HEIGHT < END_SCREEN_HEIGHT) ? abs(END_SCREEN_HEIGHT - HEIGHT) / 2 : 0;
