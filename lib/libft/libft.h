@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 15:33:46 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 19:04:12 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 19:13:29 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int					ft_recursive_factorial(int nb);
 void				ft_swap(int *a, int *b);
 int					ft_int_len(int n);
 void				ft_putstr_2d(char **tab);
-int					get_next_line(const int fd, char **line);
+int					get_next_line_feed(const int fd, char **line);
 
 void				ft_swap_col(char **tab, int col, int i, int height);
 void				ft_swap_line(char *s1, char *s2);
