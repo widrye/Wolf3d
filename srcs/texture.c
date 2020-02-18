@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aplat <aplt@student.le-101.fr>             +#+  +:+       +#+        */
+/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 21:35:48 by widrye            #+#    #+#             */
-/*   Updated: 2020/02/18 14:23:51 by aplat            ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 14:54:45 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-int				pick_texture(t_data *data)
+int			pick_texture(t_data *data)
 {
 	if (data->rays.wall == 2 || data->rays.wall == 3)
 		return (0);
@@ -27,7 +27,7 @@ int				pick_texture(t_data *data)
 	return (1);
 }
 
-double			init_t_walls(t_data *data, int *y)
+double		init_t_walls(t_data *data, int *y)
 {
 	double		x;
 
@@ -40,7 +40,7 @@ double			init_t_walls(t_data *data, int *y)
 	return (x);
 }
 
-void			texture_wall(t_data *data)
+void		texture_wall(t_data *data)
 {
 	int			y;
 	int			d;
@@ -58,7 +58,7 @@ void			texture_wall(t_data *data)
 	}
 }
 
-static void		dump_end_screen(t_data *data)
+static void	dump_end_screen(t_data *data)
 {
 	mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
 							data->image.image_ptr, 0, 0);
@@ -70,7 +70,7 @@ static void		dump_end_screen(t_data *data)
 		WIDTH / 2 - 100, HEIGHT / 2, RED, "Oh non tu as perdu");
 }
 
-void			apply_end_screen(t_data *data)
+void		apply_end_screen(t_data *data)
 {
 	int			x;
 	int			x2;
