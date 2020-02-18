@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*   By: aplat <aplt@student.le-101.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 11:05:35 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 14:55:49 by widrye           ###   ########lyon.fr   */
+/*   Created: 2020/02/18 14:16:23 by aplat             #+#    #+#             */
+/*   Updated: 2020/02/18 14:57:44 by aplat            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../includes/wolf.h"
 
 void			magic(t_data *data)
