@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   wolf_define.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*   By: aplat <aplt@student.le-101.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 10:05:10 by ztrouill          #+#    #+#             */
-/*   Updated: 2020/02/18 13:55:41 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 14:28:51 by aplat            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef WOLF_DEFINE_H
 # define WOLF_DEFINE_H

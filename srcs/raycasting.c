@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   raycasting.c                                     .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/09/18 14:38:07 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/17 20:56:45 by widrye      ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aplat <aplt@student.le-101.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/18 14:21:33 by aplat             #+#    #+#             */
+/*   Updated: 2020/02/18 14:21:41 by aplat            ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
@@ -91,7 +90,6 @@ t_data			*render(t_data *data)
 		if (data->rays.wall == 2 || data->rays.wall == 3)
 			data->texture.i = 0;
 		pthread_mutex_lock(&data->lock);
-		// draw_sline(data, 0);
 		draw_floor(data);
 		pthread_mutex_unlock(&data->lock);
 	}
