@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 21:22:38 by widrye            #+#    #+#             */
-/*   Updated: 2020/02/18 13:13:18 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 13:59:22 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ static void				pick_tp_colors(int tp, t_vector *c)
 {
 	if (tp == 0)
 	{
-		c->x = GREY_LIGHT;
-		c->y = WHITE;
+		c->x = GREEN_GRASS;
+		c->y = GREEN_DARK;
 		return ;
 	}
 	else if (tp == 1)
 	{
-		c->x = GREEN_GRASS;
-		c->y = GREEN_DARK;
+		c->x = BROWN_DARK;
+		c->y = BROWN_LIGHT;
 		return ;
 	}
 	else if (tp == 2)

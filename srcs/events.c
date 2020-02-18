@@ -3,12 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: aplat <aplt@student.le-101.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 14:16:23 by aplat             #+#    #+#             */
 /*   Updated: 2020/02/18 14:16:27 by aplat            ###   ########lyon.fr   */
+=======
+/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/20 11:05:35 by ztrouill          #+#    #+#             */
+/*   Updated: 2020/02/18 14:14:56 by widrye           ###   ########lyon.fr   */
+>>>>>>> 81cfaf2b83898bd9e08a22e2cf9d0d0b30ccbe0e
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../includes/wolf.h"
 
@@ -17,8 +25,8 @@ void			magic(t_data *data)
 	float magic_x;
 	float magic_y;
 
-	magic_x = data->player.pos_x + data->player.dir_x * 2;
-	magic_y = data->player.pos_y + data->player.dir_y * 2;
+	magic_x = data->player.pos_x + data->player.dir_x;
+	magic_y = data->player.pos_y + data->player.dir_y;
 	if (magic_y > 2 && magic_x > 2 && magic_y + 2 < data->world.row_nb &&
 	magic_x + 2 < data->world.line_nb)
 	{
