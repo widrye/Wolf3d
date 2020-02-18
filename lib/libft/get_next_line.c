@@ -1,88 +1,103 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   get_next_line.c                                  .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ztrouill <marvin@le-101.fr>                +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/10/25 12:09:51 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/03/27 11:29:18 by ztrouill    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/20 19:12:44 by widrye            #+#    #+#             */
+/*   Updated: 2020/02/18 16:09:38 by widrye           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			read_and_get_buff(char *buff, const int fd)
+static int		slice_ovf(char **ovf, char **line)
 {
-	int					ret_read;
+	size_t	len;
+	char	*tmp;
 
-	ret_read = read(fd, buff, BUFF_SIZE);
-	buff[ret_read] = '\0';
-	return (ret_read);
+	if (*ovf && ft_strchr(*ovf, '\n'))
+	{
+		len = ft_strcspn(*ovf, "\n");
+		*line = ft_strndup(*ovf, len);
+		tmp = ft_strsub(*ovf, len + 1, ft_strlen(*ovf) - len);
+		ft_strdel(ovf);
+		*ovf = tmp;
+		return (1);
+	}
+	return (0);
 }
 
-static int			check_and_get_line_2(char **line, char *buff, const int fd,
-		char **reste)
+static void		slice_n_stock(char *buf, char **line, char **ovf, int bytes)
 {
-	int					i;
-	char				*buff_tmp;
+	size_t	len;
+	size_t	len_stock;
+	char	*tmp;
 
-	i = 0;
-	if (reste[fd])
+	len = ft_strcspn(buf, "\n\0");
+	len_stock = bytes - len;
+	if (*ovf)
 	{
-		buff_tmp = ft_strjoin(*(reste + fd), buff);
-		ft_strdel(reste + fd);
+		tmp = ft_strndup(buf, len);
+		*line = ft_strjoin(*ovf, tmp);
+		ft_strdel(&tmp);
 	}
 	else
-		buff_tmp = ft_strdup(buff);
-	while (buff_tmp[i] != '\n' && buff_tmp[i] != '\0')
-		++i;
-	if (buff_tmp[i] == '\n')
+		*line = ft_strndup(buf, len);
+	tmp = ft_strsub(buf, len + 1, len_stock);
+	ft_strdel(ovf);
+	*ovf = tmp;
+}
+
+static void		stock_all(char *buf, char **ovf)
+{
+	char	*tmp;
+
+	if (!*ovf)
+		*ovf = ft_strdup(buf);
+	else
 	{
-		*line = ft_strsub(buff_tmp, 0, i);
-		*(reste + fd) = ft_strsub(buff_tmp, i + 1, ft_strlen(buff_tmp) - i);
-		ft_strdel(&buff_tmp);
+		tmp = ft_strjoin(*ovf, buf);
+		ft_strdel(ovf);
+		*ovf = tmp;
+	}
+}
+
+static int		check_end(char **line, char **ovf)
+{
+	if (*ovf && **ovf)
+	{
+		*line = ft_strdup(*ovf);
+		ft_strdel(ovf);
 		return (1);
 	}
 	else
-		*(reste + fd) = ft_strdup(buff_tmp);
-	ft_strdel(&buff_tmp);
-	return (0);
+		return (0);
 }
 
-static int			check_and_get_line(char **line, char *buff, const int fd,
-										char **reste)
+int				get_next_line(const int fd, char **line)
 {
-	int					ret_read;
+	int						bytes;
+	char					buf[BUFF_SIZE + 1];
+	static char				*ovf[42000] = { NULL };
 
-	while ((ret_read = read_and_get_buff(buff, fd)))
-		while ((check_and_get_line_2(line, buff, fd, reste)))
-			return (1);
-	if (ret_read == 0 && reste[fd] != '\0')
+	if (fd < 0 || !line || (read(fd, buf, 0) < 0) || BUFF_SIZE < 1)
+		return (-1);
+	if (ovf[fd] && slice_ovf(&ovf[fd], line))
+		return (1);
+	while ((bytes = read(fd, buf, BUFF_SIZE)))
 	{
-		if ((ft_strchr(*(reste + fd), '\n') == NULL) && *reste[fd] != '\0')
+		buf[bytes] = '\0';
+		if (ft_strchr(buf, '\n'))
 		{
-			*line = ft_strdup(reste[fd]);
-			ft_strdel(reste + fd);
+			slice_n_stock(buf, line, &ovf[fd], bytes);
 			return (1);
 		}
 		else
-			while ((check_and_get_line_2(line, buff, fd, reste)))
-				return (1);
-		ft_strdel(reste + fd);
+			stock_all(buf, &ovf[fd]);
 	}
-	return (0);
-}
-
-int					get_next_line(const int fd, char **line)
-{
-	static char			*reste[4865];
-	char				buff[BUFF_SIZE + 1];
-
-	if (fd < 0 || BUFF_SIZE <= 0 || (read(fd, NULL, 0) == -1))
-		return (-1);
-	while ((check_and_get_line(line, buff, fd, reste)))
+	if (check_end(line, &ovf[fd]))
 		return (1);
 	return (0);
 }
