@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   wolf_define.h                                    .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: widrye <widrye@student.le-101.fr>          +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/09/12 10:05:10 by ztrouill     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 04:10:16 by widrye      ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wolf_define.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/12 10:05:10 by ztrouill          #+#    #+#             */
+/*   Updated: 2020/02/18 13:08:12 by widrye           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef WOLF_DEFINE_H
 # define WOLF_DEFINE_H
@@ -37,10 +37,16 @@
 # define WHITE 0xffffff
 # define BLACK 0x000000
 # define GREEN 0x00ff00
+# define GREEN_DARK 0x013220
+# define GREEN_GRASS 0x456438
 # define RED 0xff0000
+# define RED_DARK 0x8b0000
 # define GREY_DARK 0x313232
 # define GREY_LIGHT 0x7E8C90
 # define CYAN 0x00ffff
+# define BLUE_DARK 0x001a33
+# define BROWN_DARK 0x181008
+
 # define USAGE "Usage : ./Wolf3D map/map.map"
 # define MAP "Erreur dans le chargement de la map! Quelque chose ne va pas..."
 # define PARAM "Nombre de parametres incorrect!"

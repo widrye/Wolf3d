@@ -6,39 +6,25 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 21:35:48 by widrye            #+#    #+#             */
-/*   Updated: 2020/02/17 21:38:19 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 13:26:24 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void		pick_texture(t_data *data, int y, t_vector t)
+int		pick_texture(t_data *data)
 {
-	if (data->rays.side == 0 && data->rays.dir_x < 0)
-		data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
-			data->texture.wall[1 + 4 * data->texturepack].image_str[(int)
-			((((int)t.y % data->texture.size) * data->texture.size) +
-			((int)t.x % data->texture.size))];
-	if (data->rays.side == 0 && data->rays.dir_x > 0)
-		data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
-			data->texture.wall[2 + 4 * data->texturepack].image_str[(int)
-			((((int)t.y % data->texture.size) * data->texture.size) +
-			((int)t.x % data->texture.size))];
-	if (data->rays.side == 1 && data->rays.dir_y < 0)
-		data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
-			data->texture.wall[3 + 4 * data->texturepack].image_str[(int)
-			((((int)t.y % data->texture.size) * data->texture.size) +
-			((int)t.x % data->texture.size))];
-	if (data->rays.side == 1 && data->rays.dir_y > 0)
-		data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
-			data->texture.wall[4 + 4 * data->texturepack].image_str[(int)
-			((((int)t.y % data->texture.size) * data->texture.size) +
-			((int)t.x % data->texture.size))];
 	if (data->rays.wall == 2 || data->rays.wall == 3)
-		data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
-			data->texture.wall[0].image_str[(int)
-			((((int)t.y % data->texture.size) * data->texture.size) +
-			((int)t.x % data->texture.size))];
+		return (0);
+	if (data->rays.side == 0 && data->rays.dir_x < 0)
+		return (1 + 4 * data->texturepack);
+	if (data->rays.side == 0 && data->rays.dir_x > 0)
+		return (2 + 4 * data->texturepack);
+	if (data->rays.side == 1 && data->rays.dir_y < 0)
+		return (3 + 4 * data->texturepack);
+	if (data->rays.side == 1 && data->rays.dir_y > 0)
+		return (4 + 4 * data->texturepack);
+	return (1);
 }
 
 double		init_t_walls(t_data *data, int *y)
@@ -65,7 +51,10 @@ void		texture_wall(t_data *data)
 	{
 		d = (int)fabs(y - (HEIGHT * 0.5) + (data->world.line_height * 0.5));
 		t.y = ((d * data->texture.size) / data->world.line_height);
-		pick_texture(data, y, t);
+		data->image.image_str[(int)((y * WIDTH) + data->world.x)] =
+		data->texture.wall[pick_texture(data)].image_str[(int)
+			((((int)t.y % data->texture.size) * data->texture.size) +
+			((int)t.x % data->texture.size))];
 	}
 }
 

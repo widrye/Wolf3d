@@ -6,7 +6,7 @@
 /*   By: widrye <widrye@student.le-101.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:52:58 by widrye            #+#    #+#             */
-/*   Updated: 2020/02/17 21:22:56 by widrye           ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 12:57:39 by widrye           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		secure_map(t_world *world, char **tab);
 t_data		*thread_manager(t_data *datatorender);
 t_data		*render(t_data *data);
 void		draw_floor(t_data *data);
-int			get_color(int range, int n);
+int			get_gradient_color(int range, int n, int start, int end);
 void		texture_wall(t_data *data);
 void		texellit(t_data *data, int64_t y, int64_t x);
 void		apply_end_screen(t_data *data);
